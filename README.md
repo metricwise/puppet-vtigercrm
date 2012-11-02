@@ -1,5 +1,15 @@
 # puppet-vtigercrm
 
+## Installation
+
+After running puppet, fill out System Configuration as follows:
+
+Database Information
+* Host Name = localhost
+* User Name = vtigercrm<version>
+* Password = vtigercrm<version>
+* Database Name = vtigercrm<version>
+
 ## Licensing
 
 MIT

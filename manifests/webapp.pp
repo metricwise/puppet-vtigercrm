@@ -20,19 +20,13 @@
 #     5.4.0 (default)
 #     6.0.0
 #
-# == Requirements:
-#
-#   puppet-apache2
-#   puppet-iptables
-#   puppet-mysql
-#
 define vtigercrm::webapp(
 	$docroot = "/var/www/$name",
 	$ensure = "present",
 	$provider = "tgz",
 	$version = "5.4.0"
 ) {
-    include apache2::php
+    include apache
     include iptables
     include mysql::server
 
@@ -97,13 +91,13 @@ define vtigercrm::webapp(
         user => "vtigercrm$version",
     }
 
-    package {[ php-common, php-gd, php-imap, php-mysql ]:
+    package {[ php, php-common, php-gd, php-imap, php-mysql ]:
         ensure => latest,
         notify => Service[httpd],
         provider => yum,
     }
 
-	apache2::site { $name:
+	apache::site { $name:
 		docroot => $docroot,
 		ensure => $ensure,
 	}

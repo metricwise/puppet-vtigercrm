@@ -27,7 +27,6 @@ define vtigercrm::webapp(
 	$version = "5.4.0"
 ) {
     include apache
-    include iptables
     include mysql::server
 
     augeas { "/etc/php.ini":
@@ -73,10 +72,10 @@ define vtigercrm::webapp(
         command => "chown -R apache:apache $docroot",
     }
 
-    iptables { http:
+    firewall { "100 http":
         proto => "tcp",
         dport => "80",
-        jump => "ACCEPT",
+        action => accept,
         state => "NEW",
     }
 

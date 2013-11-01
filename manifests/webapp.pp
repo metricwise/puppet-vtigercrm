@@ -79,16 +79,7 @@ define vtigercrm::webapp(
         state => "NEW",
     }
 
-    mysql::database { "vtigercrm$version":
-    	ensure => present,
-    }
-
-    mysql::rights { "Grant database privileges to vtigercrm@localhost":
-        database => "vtigercrm$version",
-        host => "localhost",
-        password => "vtigercrm$version",
-        user => "vtigercrm$version",
-    }
+    vtigercrm::database::mysql { "vtigercrm": }
 
     package {[ php, php-common, php-gd, php-imap, php-mysql ]:
         ensure => latest,

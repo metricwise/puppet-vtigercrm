@@ -6,9 +6,9 @@ After running puppet, fill out System Configuration as follows:
 
 Database Information
 * Host Name = localhost
-* User Name = vtigercrm<version>
-* Password = vtigercrm<version>
-* Database Name = vtigercrm<version>
+* User Name = vtigercrm
+* Password = vtigercrm
+* Database Name = vtigercrm
 
 ## Licensing
 
@@ -18,4 +18,4 @@ MIT
 
 * https://github.com/theforeman/puppet-apache
 * https://github.com/puppetlabs/puppetlabs-firewall
-* https://github.com/camptocamp/puppet-mysql
+* https://github.com/puppetlabs/puppetlabs-mysql
